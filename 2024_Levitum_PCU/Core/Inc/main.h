@@ -40,6 +40,10 @@ extern "C" {
 
 #include "stm32u5xx_ll_exti.h"
 
+// Levitum files
+#include "levitum_init.h"
+#include "levitum_main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 

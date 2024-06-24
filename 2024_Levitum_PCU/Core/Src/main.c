@@ -93,6 +93,7 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+  levitum_init();
 
   /* USER CODE BEGIN Init */
 
@@ -128,7 +129,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	levitum_main();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
