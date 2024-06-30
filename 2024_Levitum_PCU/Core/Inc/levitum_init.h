@@ -8,7 +8,7 @@
 #ifndef INC_LEVITUM_INIT_H_
 #define INC_LEVITUM_INIT_H_
 
-
+void levitum_init();
 
 
 

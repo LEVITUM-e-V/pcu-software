@@ -5,6 +5,9 @@
  *      Author: lukaslindner
  */
 
+#include "levitum_init.h"
 
 
+void levitum_init(){
 
+}
