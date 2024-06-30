@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "levitum_main.h"
+#include "levitum_init.h"
 
 /* USER CODE END Includes */
 
@@ -128,6 +130,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  levitum_main();
 
     /* USER CODE BEGIN 3 */
   }
