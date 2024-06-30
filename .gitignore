@@ -1,44 +1,44 @@
 # Prerequisites
 *.d
- 
+
 # Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
- 
+
 # Precompiled Headers
 *.gch
 *.pch
- 
+
 # Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
- 
+
 # Fortran module files
 *.mod
 *.smod
- 
+
 # Compiled Static libraries
 *.lai
 *.la
 *.a
 *.lib
- 
+
 # Executables
 *.exe
 *.out
 *.app
- 
+
 # STM32CubeIDE specific files
 .vscode/
 .cproject
 .project
 .settings/
 *.launch
-*.log
- 
+.metadata/
+
 # STM32CubeIDE build files
 Debug/
 Release/
@@ -50,38 +50,38 @@ Release/
 *.sct
 *.lnp
 *.crashlog
- 
+
 # Auto-generated files
 *.i
 *.s
 *.lst
- 
+
 # Backup files
 *~
 *.bak
 *.swp
- 
+
 # Build artifacts
 _build/
 _build_*/
- 
+
 # Libraries
 Middlewares/
 Drivers/
- 
+
 # IDE specific
 .idea/
 *.iml
 *.hws
 *.hwf
- 
+
 # OS generated files
 .DS_Store
 Thumbs.db
- 
+
 # Logs
 *.log
- 
+
 # Temporary files
 *.tmp
 *.temp
