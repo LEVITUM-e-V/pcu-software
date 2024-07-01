@@ -8,7 +8,10 @@
 #ifndef INC_LEVITUM_MAIN_H_
 #define INC_LEVITUM_MAIN_H_
 
+#include "main.h"
+
 void levitum_main();
+// uint32_t Read_ADC_PD12();
 
 
 

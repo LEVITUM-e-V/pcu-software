@@ -8,6 +8,8 @@
 #ifndef INC_LEVITUM_INIT_H_
 #define INC_LEVITUM_INIT_H_
 
+#include "main.h"
+
 void levitum_init();
 
 
