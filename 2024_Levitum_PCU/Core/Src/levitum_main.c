@@ -14,5 +14,4 @@ void levitum_main(){
 	HAL_Delay(500); // waits 500 ms
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET);
 	HAL_Delay(500);
-
 }
