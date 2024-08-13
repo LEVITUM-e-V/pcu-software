@@ -178,7 +178,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = VSENSE_5V_1_Pin|GPIO_PIN_12;
+    GPIO_InitStruct.Pin = VSENSE_50V_1_Pin|GPIO_PIN_12;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
@@ -245,7 +245,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
 
     HAL_GPIO_DeInit(GPIOF, GPIO_PIN_14|GPIO_PIN_15);
 
-    HAL_GPIO_DeInit(GPIOD, VSENSE_5V_1_Pin|GPIO_PIN_12);
+    HAL_GPIO_DeInit(GPIOD, VSENSE_50V_1_Pin|GPIO_PIN_12);
 
   /* USER CODE BEGIN ADC4_MspDeInit 1 */
 
