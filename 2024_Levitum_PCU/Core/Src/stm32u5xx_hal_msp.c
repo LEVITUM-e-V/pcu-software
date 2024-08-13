@@ -1,3 +1,4 @@
+
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
@@ -296,6 +297,7 @@ void HAL_FDCAN_MspInit(FDCAN_HandleTypeDef* hfdcan)
   /* USER CODE BEGIN FDCAN1_MspInit 1 */
 
   /* USER CODE END FDCAN1_MspInit 1 */
+
   }
 
 }
@@ -371,6 +373,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
   /* USER CODE BEGIN I2C2_MspInit 1 */
 
   /* USER CODE END I2C2_MspInit 1 */
+
   }
 
 }
@@ -402,6 +405,51 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c)
   /* USER CODE BEGIN I2C2_MspDeInit 1 */
 
   /* USER CODE END I2C2_MspDeInit 1 */
+  }
+
+}
+
+/**
+* @brief TIM_Base MSP Initialization
+* This function configures the hardware resources used in this example
+* @param htim_base: TIM_Base handle pointer
+* @retval None
+*/
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
+{
+  if(htim_base->Instance==TIM16)
+  {
+  /* USER CODE BEGIN TIM16_MspInit 0 */
+
+  /* USER CODE END TIM16_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM16_CLK_ENABLE();
+  /* USER CODE BEGIN TIM16_MspInit 1 */
+
+  /* USER CODE END TIM16_MspInit 1 */
+
+  }
+
+}
+
+/**
+* @brief TIM_Base MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param htim_base: TIM_Base handle pointer
+* @retval None
+*/
+void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
+{
+  if(htim_base->Instance==TIM16)
+  {
+  /* USER CODE BEGIN TIM16_MspDeInit 0 */
+
+  /* USER CODE END TIM16_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_TIM16_CLK_DISABLE();
+  /* USER CODE BEGIN TIM16_MspDeInit 1 */
+
+  /* USER CODE END TIM16_MspDeInit 1 */
   }
 
 }
@@ -591,6 +639,7 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
   /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
 
   /* USER CODE END USB_OTG_FS_MspInit 1 */
+
   }
 
 }

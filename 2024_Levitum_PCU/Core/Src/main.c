@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <string.h>
+#include <stdio.h>
 #include "levitum_main.h"
 #include "levitum_init.h"
 
@@ -49,6 +51,8 @@ FDCAN_HandleTypeDef hfdcan1;
 
 I2C_HandleTypeDef hi2c2;
 
+TIM_HandleTypeDef htim16;
+
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
@@ -71,6 +75,7 @@ static void MX_ADC4_Init(void);
 static void MX_FDCAN1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_TIM16_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -88,6 +93,9 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	char uart_buf[50];
+	int uart_buf_len;
+	uint16_t timer_val;
 
   /* USER CODE END 1 */
 
@@ -121,8 +129,15 @@ int main(void)
   MX_FDCAN1_Init();
   MX_I2C2_Init();
   MX_USART2_UART_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
   levitum_init();
+
+  uart_buf_len = sprintf(uart_buf, "Hello Levitum\r\n");
+  HAL_UART_Transmit(&huart1, (uint8_t*)uart_buf, uart_buf_len, 100);
+
+  // Start timer
+  HAL_TIM_Base_Start(&htim16);
 
   /* USER CODE END 2 */
 
@@ -130,8 +145,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	timer_val = __HAL_TIM_GET_COUNTER(&htim16);
+	HAL_Delay(2000);
+	uint16_t time_span = (__HAL_TIM_GET_COUNTER(&htim16) - timer_val)/10;
+	uart_buf_len = sprintf(uart_buf, "%d ms\r\n", time_span);
+	HAL_UART_Transmit(&huart1, (uint8_t*)uart_buf, uart_buf_len, 100);
     /* USER CODE END WHILE */
-	  levitum_main();
 
     /* USER CODE BEGIN 3 */
   }
@@ -496,6 +515,38 @@ static void MX_ICACHE_Init(void)
   /* USER CODE BEGIN ICACHE_Init 2 */
 
   /* USER CODE END ICACHE_Init 2 */
+
+}
+
+/**
+  * @brief TIM16 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM16_Init(void)
+{
+
+  /* USER CODE BEGIN TIM16_Init 0 */
+
+  /* USER CODE END TIM16_Init 0 */
+
+  /* USER CODE BEGIN TIM16_Init 1 */
+
+  /* USER CODE END TIM16_Init 1 */
+  htim16.Instance = TIM16;
+  htim16.Init.Prescaler = 16000-1;
+  htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim16.Init.Period = 65535;
+  htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim16.Init.RepetitionCounter = 0;
+  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM16_Init 2 */
+
+  /* USER CODE END TIM16_Init 2 */
 
 }
 
