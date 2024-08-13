@@ -93,9 +93,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	char uart_buf[50];
-	int uart_buf_len;
-	uint16_t timer_val;
 
   /* USER CODE END 1 */
 
@@ -133,11 +130,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   levitum_init();
 
-  uart_buf_len = sprintf(uart_buf, "Hello Levitum\r\n");
-  HAL_UART_Transmit(&huart1, (uint8_t*)uart_buf, uart_buf_len, 100);
 
-  // Start timer
-  HAL_TIM_Base_Start(&htim16);
 
   /* USER CODE END 2 */
 
@@ -145,11 +138,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	timer_val = __HAL_TIM_GET_COUNTER(&htim16);
-	HAL_Delay(2000);
-	uint16_t time_span = (__HAL_TIM_GET_COUNTER(&htim16) - timer_val)/10;
-	uart_buf_len = sprintf(uart_buf, "%d ms\r\n", time_span);
-	HAL_UART_Transmit(&huart1, (uint8_t*)uart_buf, uart_buf_len, 100);
+	  levitum_main();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

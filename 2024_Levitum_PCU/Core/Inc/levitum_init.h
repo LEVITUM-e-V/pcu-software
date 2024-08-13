@@ -9,6 +9,13 @@
 #define INC_LEVITUM_INIT_H_
 
 #include "main.h"
+#include <stdio.h>
+
+
+
+extern char uart_buf[50];
+extern int uart_buf_len;
+extern uint16_t timer_val;
 
 void levitum_init();
 
